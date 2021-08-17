@@ -44,7 +44,7 @@ namespace h_MenuLayer {
 }
 
 
-namespace MoreOptionsLayer {
+namespace h_MoreOptionsLayer {
     
         void* (*o_anit)(CCLayer*);
     void* anit(CCLayer* self) {
