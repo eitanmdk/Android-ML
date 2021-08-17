@@ -1,4 +1,4 @@
-/*
+
 #include <cstdio>
 #include <cstdlib>
 #include <dlfcn.h>
@@ -8,39 +8,58 @@
 
 using namespace cocos2d;
 
-namespace h_menuLayer {
-	void* (*o_init)(CCLayer*);
-	void* init(CCLayer* self) {
-		auto ret = o_init(self);
+namespace h_MenuLayer {
+
     
-    //create button
+    void* (*o_init)(CCLayer*);
+    void* init(CCLayer* self) {
+        auto ret = o_init(self);
+        
+        auto dir = CCDirector::sharedDirector();
 
-		auto sprite = CCSprite::createWithSpriteFrameName("GJ_createBtn_001.png");
+        auto menu = CCMenu::create();
+        auto menu2 = CCMenu::create();
+        
+        // Created Lvls
+        auto createdlvls = CCSprite::createWithSpriteFrameName("GJ_createBtn_001.png");
+        createdlvls->setScale(.7);
+        auto btn = CCMenuItemSpriteExtra::create(createdlvls, createdlvls, self, menu_selector(CreatorLayer::onMyLevels));
+        menu->addChild(btn);
+        menu->setPosition(CCPoint(dir->getScreenRight() - 43, dir->getScreenBottom() + 43));
+        self->addChild(menu, 100);
 
-		auto btn = CCMenuItemSprite::create(sprite, sprite, self, menu_selector(CreatorLayer::onMyLevels));
-		btn->setScale(0.7);
+        // Version txt
+        auto label22 = CCLabelBMFont::create("Version 2.2.0.3", "chatFont.fnt");
+        label22->setPosition(CCPoint(dir->getScreenLeft() + 2, dir->getScreenTop() - 10));
+        label22->setAnchorPoint({ 0, 0 });
+        label22->setScale(.5);
+        self->addChild(label22);
 
-		auto menu = CCMenu::create();
-		menu->addChild(btn, 100);
-		menu->setPosition({CCPoint(dir->getScreenRight() - 43, dir->getScreenBottom() + 43 });
 
-		self->addChild(menu, 100);
-
-    //texto de la version uwu
-
-    auto texto = CCLabelMBFont::create("Version 2.2.0.3", "chatFont.fnt");
-
-    texto->setPosition(CCPoint(dir->getScreenLeft() + 2, dir->getScreenTop() - 10));
-
-    label->setScale(.5);
-
-		return ret;
-	}
+        //Sai
+        auto sai = CCLabelBMFont::create("sai estuvo aqui uwu", "chatFont.fnt");
+        
+        return ret;
+    }
 }
 
 
+namespace MoreOptionsLayer {
+    
+        void* (*o_anit)(CCLayer*);
+    void* anit(CCLayer* self) {
+        auto ret = o_anit(self);
+    
+    bool (*MoreOptionsLayer_init)(MoreOptionsLayer*);
+bool MoreOptionsLayer_initHook(MoreOptionsLayer* self);
+{
+    self->addToggle("Enable FPS Counter", "0116", "When enabled, your current FPS will be showed while in the menus and playing levels");
+}
+    }
+}
 __attribute__((constructor))
 void fdml_init() {
-	hook("_ZN9MenuLayer4initEv", h_menuLayer, init, o_init);
+    hook("_ZN9MenuLayer4initEv", h_MenuLayer, init, o_init);
+    hook("_ZN16MoreOptionsLayer4initEv", MoreOptionsLayer, anit, o_anit);
+    inlineHookAll();
 }
-*/
