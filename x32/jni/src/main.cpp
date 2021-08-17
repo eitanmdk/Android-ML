@@ -14,6 +14,11 @@ namespace h_MenuLayer {
     void* (*o_init)(CCLayer*);
     void* init(CCLayer* self) {
         auto ret = o_init(self);
+
+        auto gm = GameManager::sharedState();
+        
+        gm->setGameVariable("0115", false); // FPS label thing
+        gm->setGameVariable("0109", false); // level info thing
         
         auto dir = CCDirector::sharedDirector();
 
@@ -53,8 +58,10 @@ namespace h_MoreOptionsLayer {
     bool (*MoreOptionsLayer_init)(MoreOptionsLayer*);
 bool MoreOptionsLayer_initHook(MoreOptionsLayer* self);
 {
-    self->addToggle("Enable FPS Counter", "0116", "When enabled, your current FPS will be showed while in the menus and playing levels");
+ self->addToggle("Enable information for levels", "0109", "when is enabled you can see all level info from robtop");
+ self->addToggle("Enable FPS Counter", "0116", "When enabled, your current FPS will be showed while in the menus and playing levels");
 }
+
     }
 }
 __attribute__((constructor))
