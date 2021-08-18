@@ -16,6 +16,7 @@ public:
 	void onOnlineLevels(cocos2d::CCObject* pSender);
 	void onLeaderboards(cocos2d::CCObject* pSender);
 	void onSavedLevels(cocos2d::CCObject* pSender);
+	void onMultiplayer(cocos2d::CCObject* pSender);
 	void onMyLevels(cocos2d::CCObject* pSender);
 	void onDailyLevel(cocos2d::CCObject* pSender);
 	void onFeaturedLevels(cocos2d::CCObject* pSender);
