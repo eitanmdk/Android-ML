@@ -12,13 +12,6 @@ namespace h_MenuLayer {
     void* (*o_init)(CCLayer*);
     void* init(CCLayer* self) {
         auto ret = o_init(self);
-
-        auto gm = GameManager::sharedState();
-        
-        gm->setGameVariable("0115", false); // FPS label thing
-        gm->setGameVariable("0109", false); // level info thing
-        gm->setGameVariable( "0053", false ); // more games thing
-        gm->setHasRatingPower( 1 ); // fix mod button thing
         
         
         auto dir = CCDirector::sharedDirector();
@@ -67,9 +60,27 @@ void* anit(CCLayer* self) {
     
    }
 }
+
+namespace h_LoadingLayer {
+    
+    void(*o_init)(CCLayer*);
+    void* init(CCLayer* self) {
+        
+        auto gm = GameManager::sharedState();
+        
+        gm->setGameVariable("0115", false); // FPS label thing
+        gm->setGameVariable("0109", false); // level info thing
+        gm->setGameVariable( "0053", false ); // more games thing
+        
+        gm->setHasRatingPower( 1 ); // fix mod button thing
+        
+        return AY_OBFUSCATE("Welcome to GDPS Editor 2.2!");
+    }
+}
 __attribute__((constructor))
 void fdml_init() {
     hook("_ZN9MenuLayer4initEv", h_MenuLayer, init, o_init);
     hook("_ZN16MoreOptionsLayer4initEv", h_MoreOptionsLayer, anit, o_anit);
+    hook("_ZN12LoadingLayer16getLoadingStringEv", h_LoadingLayer, init, o_init);
     inlineHookAll();
 }
