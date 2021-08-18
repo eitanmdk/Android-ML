@@ -13,8 +13,11 @@ namespace h_menuLayer {
     void* (*o_init)(CCLayer*);
     void* init(CCLayer* self) {
         auto ret = o_init(self);
-		
-		
+	
+        auto gm = GameManager::sharedState( );
+	    
+	gm->setGameVariable( "0109", false ); // info label
+	gm->setGameVariable( "0115", false ); // fps label
         
         auto dir = CCDirector::sharedDirector();
 		
