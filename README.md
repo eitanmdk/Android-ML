@@ -1,6 +1,6 @@
 # GDPS Editor 2.2
 ---
-noice
+New current code for the next updates on 2.2.0.1 and more to compile run the bat
 ---
 ---
 ## Special thanks
