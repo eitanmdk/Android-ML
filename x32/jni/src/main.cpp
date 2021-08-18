@@ -51,6 +51,8 @@ namespace h_MenuLayer {
 
 
 namespace h_MoreOptionsLayer {
+
+    int addToggle(const char* display, const char* key, const char* extraInfo);
     
         void* (*o_anit)(CCLayer*);
     void* anit(CCLayer* self) {
