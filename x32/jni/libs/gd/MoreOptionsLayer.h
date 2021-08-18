@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CCLayer.h"
+#include <CCLayer.h>
 
 class MoreOptionsLayer : cocos2d::CCLayer
 {
