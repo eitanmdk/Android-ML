@@ -7,6 +7,7 @@ public:
   void endGame();
   void onYouTube(cocos2d::CCObject*);
   void onTwitter(cocos2d::CCObject*);
+  void onTwitch(cocos2d::CCObject*);
   void onFacebook(cocos2d::CCObject*);
   void onRobTop(cocos2d::CCObject*);
   void onNewgrounds(cocos2d::CCObject*);
@@ -15,6 +16,7 @@ public:
   void syncPlatformAchievements(float);
   void onAchievements(cocos2d::CCObject*);
   void onMoreGames(cocos2d::CCObject*);
+  void onTrailer(cocos2d::CCObject*);
   void onDaily(cocos2d::CCObject*);
   void onMyProfile(cocos2d::CCObject*);
   static cocos2d::CCNode* node(void);
