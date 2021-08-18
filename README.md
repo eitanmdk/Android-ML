@@ -1,6 +1,7 @@
 # GDPS Editor 2.2
 ---
-noice
+The actual code for the new updates from gdps editor 2.2 
+to add this code you need to run Build.bat and see the "out" folder and then search a file called "androidml" and there is the .so compiled
 ---
 ---
 ## Special thanks
