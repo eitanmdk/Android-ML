@@ -60,7 +60,7 @@ void* anit(CCLayer* self) {
     
    }
 }
-
+/*
 namespace h_LoadingLayer {
     
     void(*o_init)(CCLayer*);
@@ -77,10 +77,11 @@ namespace h_LoadingLayer {
         return AY_OBFUSCATE("Welcome to GDPS Editor 2.2!");
     }
 }
+*/
 __attribute__((constructor))
 void fdml_init() {
     hook("_ZN9MenuLayer4initEv", h_MenuLayer, init, o_init);
     hook("_ZN16MoreOptionsLayer4initEv", h_MoreOptionsLayer, anit, o_anit);
-    hook("_ZN12LoadingLayer16getLoadingStringEv", h_LoadingLayer, init, o_init);
+    // hook("_ZN12LoadingLayer16getLoadingStringEv", h_LoadingLayer, init, o_init);
     inlineHookAll();
 }
