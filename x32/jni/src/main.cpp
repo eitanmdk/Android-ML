@@ -19,7 +19,7 @@ namespace h_MenuLayer {
         
         gm->setGameVariable("0115", false); // FPS label thing
         gm->setGameVariable("0109", false); // level info thing
-        gm->setHasRatingPower( 1 );
+        gm->setHasRatingPower( 1 ); // fix mod button thing
         
         auto dir = CCDirector::sharedDirector();
 
@@ -28,17 +28,22 @@ namespace h_MenuLayer {
         
         // Created Lvls
         auto createdlvls = CCSprite::createWithSpriteFrameName("GJ_createBtn_001.png");
+        
         createdlvls->setScale(.7);
+        
         auto btn = CCMenuItemSpriteExtra::create(createdlvls, createdlvls, self, menu_selector(CreatorLayer::onMyLevels));
+        
         menu->addChild(btn);
         menu->setPosition(CCPoint(dir->getScreenRight() - 43, dir->getScreenBottom() + 43));
         self->addChild(menu, 100);
 
         // Version txt
-        auto label22 = CCLabelBMFont::create("Version 2.2.0.3", "chatFont.fnt");
+        auto label22 = CCLabelBMFont::create("Version 2.2.0.4 Beta", "chatFont.fnt");
+        
         label22->setPosition(CCPoint(dir->getScreenLeft() + 2, dir->getScreenTop() - 10));
         label22->setAnchorPoint({ 0, 0 });
         label22->setScale(.5);
+        
         self->addChild(label22);
         
         return ret;
@@ -47,14 +52,14 @@ namespace h_MenuLayer {
 
 
 namespace h_MoreOptionsLayer {
-
-    int addToggle(const char* display, const char* key, const char* extraInfo);
+// addtoggle def
+int addToggle(const char* display, const char* key, const char* extraInfo);
     
-        void* (*o_anit)(CCLayer*);
-    void* anit(CCLayer* self) {
-        auto ret = o_anit(self);
+void* (*o_anit)(CCLayer*);
+void* anit(CCLayer* self) {
+auto ret = o_anit(self);
     
-    bool (*MoreOptionsLayer_init)(MoreOptionsLayer*);
+bool (*MoreOptionsLayer_init)(MoreOptionsLayer*);
 bool MoreOptionsLayer_initHook(MoreOptionsLayer* self);
 {
  self->addToggle("Enable information for levels", "0109", "when is enabled you can see all level info from robtop");
