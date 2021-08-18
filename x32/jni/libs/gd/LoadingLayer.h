@@ -2,7 +2,7 @@
 
 #include "cocos2dx/CCLayer.h"
 #include "cocos2dx/CCScene.h"
-#include "cocos2dx/CCLabelBMFont.h"
+#include "cocos2dx/label_nodes/CCLabelBMFont.h"
 
 class LoadingLayer : public cocos2d::CCLayer, public cocos2d::CCTouchDelegate, public cocos2d::CCAccelerometerDelegate, public cocos2d::CCKeypadDelegate, public cocos2d::CCKeyboardDelegate, public cocos2d::CCMouseDelegate
 {
