@@ -40,10 +40,6 @@ namespace h_MenuLayer {
         label22->setAnchorPoint({ 0, 0 });
         label22->setScale(.5);
         self->addChild(label22);
-
-
-        //Sai
-        auto sai = CCLabelBMFont::create("sai estuvo aqui uwu", "chatFont.fnt");
         
         return ret;
     }
