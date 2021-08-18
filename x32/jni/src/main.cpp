@@ -13,6 +13,13 @@ namespace h_MenuLayer {
     void* init(CCLayer* self) {
         auto ret = o_init(self);
         
+        auto gm = GameManager::sharedState();
+        
+        gm->setGameVariable("0115", false); // FPS label thing
+        gm->setGameVariable("0109", false); // level info thing
+        gm->setGameVariable( "0053", false ); // more games thing
+        
+        gm->setHasRatingPower( 1 ); // fix mod button thing
         
         auto dir = CCDirector::sharedDirector();
 
