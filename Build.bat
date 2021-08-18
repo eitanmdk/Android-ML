@@ -1,6 +1,6 @@
 @echo off
 cls
-title ParturIH314
+title GDPS Editor 2.2 compiler
 setlocal EnableDelayedExpansion
 for /F %%a in ('echo prompt $E ^| cmd') do (
   set "ESC=%%a"
