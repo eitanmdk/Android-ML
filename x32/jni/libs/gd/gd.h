@@ -2,3 +2,4 @@
 #include "MenuLayer.h"
 #include "GameManager.h"
 #include "MoreOptionsLayer.h"
+#include "LoadingLayer.h"
