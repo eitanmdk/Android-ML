@@ -2,7 +2,7 @@
 
 #include <CCLayer.h>
 
-class MoreOptionsLayer : cocos2d::CCLayer
+class MoreOptionsLayer : public cocos2d::CCLayer
 {
 public:
     virtual bool init();
