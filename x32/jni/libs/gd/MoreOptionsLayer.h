@@ -9,13 +9,14 @@ public:
 
     int addToggle(const char* display, const char* key, const char* extraInfo);
     
-    void* (*MoreOptionsLayer_init)(CCLayer*);
-    void* MoreOptionsLayer_initHook(CCLayer* self) {
+    bool (*MoreOptionsLayer_init)(MoreOptionsLayer*);
+    bool MoreOptionsLayer_initHook(MoreOptionsLayer* self) {
 
-        auto ret = o_anit(self);
+        if (!MoreOptionsLayer_init(self)) 
+            return false;
 
         self->addToggle("Enable information for levels", "0109", "when is enabled you can see all level info from robtop");
         self->addToggle("Enable FPS Counter", "0115", "When enabled, your current FPS will be showed while in the menus and playing levels");
 
-        return ret;
+        return true;
 };
