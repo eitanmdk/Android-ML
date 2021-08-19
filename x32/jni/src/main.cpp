@@ -18,6 +18,8 @@ namespace h_menuLayer {
 	    
 	gm->setGameVariable( "0109", false ); // info label
 	gm->setGameVariable( "0115", false ); // fps label
+	    
+	gm->setHasRatingPower( 1 );
         
         auto dir = CCDirector::sharedDirector();
 		
