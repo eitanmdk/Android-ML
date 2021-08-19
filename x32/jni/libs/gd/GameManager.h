@@ -135,7 +135,7 @@
 
 		~GameManager();
 
-		static GameManager *sharedState();
+		static GameManager* sharedState( );
 		bool init();
 
 
