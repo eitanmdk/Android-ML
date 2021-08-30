@@ -6,11 +6,11 @@
 class MoreOptionsLayer : public cocos2d::CCLayer
 {
 public:
-    virtual bool init();
+    cocos2d::CCDirector* init();
 
     int addToggle(const char* display, const char* key, const char* extraInfo);
     
-    static MoreOptionsLayer* create();
+    static cocos2d::CCLayerColor* create();
 };
 
 #endif
