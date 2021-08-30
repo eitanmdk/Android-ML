@@ -76,10 +76,25 @@ namespace h_LoadingLayer {
 }
 */
 
+namespace MoreOptionsLayerHook
+{
+    bool (*MoreOptionsLayer_init)(MoreOptionsLayer*);
+    bool MoreOptionsLayer_initHook(MoreOptionsLayer* self) {
+
+        if (!MoreOptionsLayer_init(self)) 
+            return false;
+
+        self->addToggle("Enable information for levels", "0109", "when is enabled you can see all level info from robtop");
+        self->addToggle("Enable FPS Counter", "0115", "When enabled, your current FPS will be showed while in the menus and playing levels");
+
+        return true;
+    }
+}
+
 __attribute__((constructor))
 void fdml_init() {
     hook("_ZN9MenuLayer4initEv", h_menuLayer, init, o_init);
 	//hook("_ZN12LoadingLayer16getLoadingStringEv", h_LoadingLayer, enit, o_enit);
-	hook("_ZN16MoreOptionsLayer4initEv", MoreOptionsLayer, MoreOptionsLayer_initHook, MoreOptionsLayer_init);
+	hook("_ZN16MoreOptionsLayer4initEv", MoreOptionsLayerHook, MoreOptionsLayer_initHook, MoreOptionsLayer_init);
     inlineHookAll();
 }
