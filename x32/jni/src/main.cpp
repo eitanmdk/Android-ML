@@ -78,8 +78,8 @@ namespace h_LoadingLayer {
 
 namespace MoreOptionsLayerHook
 {
-    void* (*MoreOptionsLayer_init)(cocos2d::CClayer*);
-    void* MoreOptionsLayer_initHook(cocos2d::CClayer* self) {
+    void* (*MoreOptionsLayer_init)(cocos2d::CCLayer*);
+    void* MoreOptionsLayer_initHook(cocos2d::CCLayer* self) {
 	auto ret = MoreOptionsLayer_init(self);
 
         self->addToggle("Enable information for levels", "0109", "when is enabled you can see all level info from robtop");
