@@ -5,26 +5,35 @@
 #include <gd.h>
 #include "libs/hook/inlineHook.h"
 
+// NOTE: the show fps button thing is missing because missing headers say to andy to give the headers LOL
+
+// import cocos
 using namespace cocos2d;
 
+class Links : public cocos2d::CCLayer 
+{
+public:
+    void Creditos( cocos2d::CCObject* selector) 
+    {
+        auto app = cocos2d::CCApplication::sharedApplication( );
+        auto url = ("http://ps.fhgdps.com/GDPSEditor22/os.html");
+
+        app->openURL(url);
+    }
+};
 namespace h_menuLayer {
 
-    
+    // define the layer
     void* (*o_init)(CCLayer*);
     void* init(CCLayer* self) {
-        auto ret = o_init(self);
-	
-        auto gm = GameManager::sharedState( );
-	    
-	gm->setGameVariable( "0109", false ); // info label
-	gm->setGameVariable( "0115", false ); // fps label
+
+    auto ret = o_init(self);
         
         auto dir = CCDirector::sharedDirector();
 		
         auto menu = CCMenu::create();
         auto menu2 = CCMenu::create();
 
-        
         // Created Lvls
         auto createdlvls = CCSprite::createWithSpriteFrameName("GJ_createBtn_001.png");
         createdlvls->setScale(.7);
@@ -34,25 +43,37 @@ namespace h_menuLayer {
         self->addChild(menu, 100);
 
         // Version txt
-        auto label22 = CCLabelBMFont::create("Version 2.2.0.4", "chatFont.fnt");
-        label22->setPosition(CCPoint(dir->getScreenLeft() + 2, dir->getScreenTop() - 10));
+        auto label22 = CCLabelBMFont::create("Version 2.2.0.5", "chatFont.fnt");
+        label22->setPosition(CCPoint(dir->getScreenRight() - 55, dir->getScreenTop() - 10));
         label22->setAnchorPoint({ 0, 0 });
         label22->setScale(.5);
         self->addChild(label22);
-		
-		//VideoOptionsLayer
-		
+
+
+        // credits button **new addon**
+        auto creditos = CCSprite::createWithSpriteFrameName("communityCreditsBtn_001.png");
+
+        auto creditosbut = CCMenuItemSpriteExtra::create(
+        creditos,
+        creditos,
+        self,
+        menu_selector(Links::Creditos));
+        
+        auto creditosmen = CCMenu::create();
+
+        creditosmen->setPosition({5, 90});
+        creditosmen->addChild(creditosbut);
+        creditosmen->setScale(.7);
+        self->addChild(creditosmen, 100);
+
+        //the other button XD
         auto showfps = CCSprite::createWithSpriteFrameName("GJ_optionsBtn02_001.png");
         showfps->setScale(1);
         auto btn2 = CCMenuItemSpriteExtra::create(showfps, showfps, self, menu_selector(VideoOptionsLayer::onAdvanced));
         menu2->addChild(btn2);
         menu2->setPosition(CCPoint(dir->getScreenRight() - 43, dir->getScreenTop() - 35));
         self->addChild(menu2, 100);
-		
 
-        //Sai
-        auto sai = CCLabelBMFont::create("sai was here :=)", "chatFont.fnt");
-        
         return ret;
     }
 }
@@ -63,15 +84,18 @@ namespace h_LoadingLayer {
     void(*o_enit)(CCLayer*);
     void* enit(CCLayer* self) {
         
+        auto ret = o_enit(self);
         
-                auto gm = GameManager::sharedState();
+        // define game manager
+
+        auto gm = GameManager::sharedState();
 		
         gm->setGameVariable("0109", false); // level info thing
         gm->setGameVariable( "0053", false ); // more games thing
         
         gm->setHasRatingPower( 1 ); // fix mod button thing
         
-        return AY_OBFUSCATE("Welcome to GDPS Editor 2.2!");
+        return ret;
 		}
 }
 */
@@ -90,7 +114,6 @@ namespace MoreOptionsLayerHook
         return ret;
     }
 }
-
 __attribute__((constructor))
 void fdml_init() {
     hook("_ZN9MenuLayer4initEv", h_menuLayer, init, o_init);
@@ -98,3 +121,4 @@ void fdml_init() {
 	hook("_ZN16MoreOptionsLayer4initEv", MoreOptionsLayerHook, MoreOptionsLayer_initHook, MoreOptionsLayer_init);
     inlineHookAll();
 }
+
