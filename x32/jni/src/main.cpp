@@ -5,8 +5,6 @@
 #include <gd.h>
 #include "libs/hook/inlineHook.h"
 
-// NOTE: the show fps button thing is missing because missing headers say to andy to give the headers LOL
-
 // import cocos
 using namespace cocos2d;
 
