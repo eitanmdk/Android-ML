@@ -78,16 +78,14 @@ namespace h_LoadingLayer {
 
 namespace MoreOptionsLayerHook
 {
-    bool (*MoreOptionsLayer_init)(MoreOptionsLayer*);
-    bool MoreOptionsLayer_initHook(MoreOptionsLayer* self) {
-
-        if (!MoreOptionsLayer_init(self)) 
-            return false;
+    void* (*MoreOptionsLayer_init)(cocos2d::CClayer*);
+    void* MoreOptionsLayer_initHook(cocos2d::CClayer* self) {
+	auto ret = MoreOptionsLayer_init(self);
 
         self->addToggle("Enable information for levels", "0109", "when is enabled you can see all level info from robtop");
         self->addToggle("Enable FPS Counter", "0115", "When enabled, your current FPS will be showed while in the menus and playing levels");
 
-        return true;
+        return ret;
     }
 }
 
