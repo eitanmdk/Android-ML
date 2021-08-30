@@ -3,3 +3,4 @@
 #include "GameManager.h"
 #include "MoreOptionsLayer.h"
 #include "LoadingLayer.h"
+#include "VideoOptionsLayer.h"
