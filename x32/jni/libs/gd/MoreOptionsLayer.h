@@ -1,7 +1,7 @@
 #ifndef MOREOPTIONSLAYER_H
 #define MOREOPTIONSLAYER_H
 
-#include <CCLayer.h>
+#include <cocos2d.h>
 
 class MoreOptionsLayer : public cocos2d::CCLayer
 {
