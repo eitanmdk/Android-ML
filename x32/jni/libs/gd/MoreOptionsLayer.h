@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MOREOPTIONSLAYER_H
+#define MOREOPTIONSLAYER_H
 
 #include <CCLayer.h>
 
@@ -9,3 +10,5 @@ public:
 
     int addToggle(const char* display, const char* key, const char* extraInfo);
 };
+
+#endif
