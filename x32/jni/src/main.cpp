@@ -59,9 +59,9 @@ namespace h_menuLayer {
         
         auto creditosmen = CCMenu::create();
 
-        creditosmen->setPosition({5, 90});
+        creditosmen->setPosition(CCPoint(dir->getScreenLeft() + 20, dir->getScreenTop() - 35));
         creditosmen->addChild(creditosbut);
-        creditosmen->setScale(.7);
+        creditosmen->setScale(1);
         self->addChild(creditosmen, 100);
 
         //the other button XD
@@ -69,7 +69,7 @@ namespace h_menuLayer {
         showfps->setScale(1);
         auto btn2 = CCMenuItemSpriteExtra::create(showfps, showfps, self, menu_selector(VideoOptionsLayer::onAdvanced));
         menu2->addChild(btn2);
-        menu2->setPosition(CCPoint(dir->getScreenRight() - 43, dir->getScreenTop() - 35));
+        menu2->setPosition(CCPoint(dir->getScreenRight() - 22, dir->getScreenTop() - 35));
         self->addChild(menu2, 100);
 
         return ret;
