@@ -12,7 +12,7 @@ public:
     static MoreOptionsLayer* create();
 
     void onSongBrowser(CCObject* sender);
-    static MoreOptionsLayer* addToggle(const char* label, const char* gv, const char* description);
+    static MoreOptionsLayer* addToggle(bool* a1, const char* label, const char* gv, const char* description);
     void onToggle(CCObject* sender);
 
     virtual bool init();
