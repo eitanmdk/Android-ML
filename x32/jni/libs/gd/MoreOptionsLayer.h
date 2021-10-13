@@ -1,16 +1,33 @@
-#ifndef MOREOPTIONSLAYER_H
-#define MOREOPTIONSLAYER_H
+#pragma once
 
-#include <cocos2d.h>
+#include "MenuLayer.h"
+#include "cocos2d.h"
 
-class MoreOptionsLayer : public cocos2d::CCLayer
+class MoreOptionsLayer : public cocos2d::CCLayer 
 {
 public:
-    cocos2d::CCDirector* init();
+    MoreOptionsLayer();
+    virtual ~MoreOptionsLayer();
 
-    int addToggle(const char* display, const char* key, const char* extraInfo);
-    
-    static cocos2d::CCLayerColor* create();
+    static MoreOptionsLayer* create();
+
+    void onSongBrowser(CCObject* sender);
+    static MoreOptionsLayer* addToggle(const char* label, const char* gv, const char* description);
+    void onToggle(CCObject* sender);
+
+    virtual bool init();
 };
 
-#endif
+class OptionsLayer : public cocos2d::CCLayer
+{
+public:
+    
+public:
+    OptionsLayer();
+    virtual ~OptionsLayer();
+
+    static OptionsLayer* create();
+
+    virtual bool init();
+    virtual void update(float dt);
+};
