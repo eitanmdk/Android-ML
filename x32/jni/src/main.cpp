@@ -120,15 +120,15 @@ auto gm = GameManager::sharedState();
 
 namespace MoreOptionsLayerHook
 {
-    void* (*MoreOptionsLayer_init)(cocos2d::CCLayer*);
-    void* MoreOptionsLayer_initHook(cocos2d::CCLayer* self) {
+    MoreOptionsLayer* (*CCLayer)(MoreOptionsLayer*);
+    MoreOptionsLayer* MoreOptionsLayer_initHook(CCLayer* self) {
 
-    auto moreOptionsLayer =  MoreOptionsLayer::create();
-
-	auto ret = MoreOptionsLayer_init(moreOptionsLayer);
-	    
-        moreOptionsLayer->addToggle("Enable information for levels", "0109", "when is enabled you can see all level info from robtop");
-        moreOptionsLayer->addToggle("Enable FPS Counter", "0115", "When enabled, your current FPS will be showed while in the menus and playing levels");
+    auto ret = MoreOptionsLayer_init(self);
+        
+     
+        
+        MoreOptionsLayer::addToggle(bool, "Enable information for levels", "0109", "when is enabled you can see all level info from robtop");
+        MoreOptionsLayer::(bool, "Enable FPS Counter", "0115", "When enabled, your current FPS will be showed while in the menus and playing levels");
 
         return ret;
     }
