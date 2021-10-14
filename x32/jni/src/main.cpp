@@ -179,7 +179,7 @@ namespace MoreOptionsLayerHook
     auto ret = MoreOptionsLayer_init(self);
         
         MoreOptionsLayer::addToggle(false, "Enable information for levels", "0109", "when is enabled you can see all level info from robtop");
-        MoreOptionsLayer::(false, "Enable FPS Counter", "0115", "When enabled, your current FPS will be showed while in the menus and playing levels");
+        MoreOptionsLayer::addToggle(false, "Enable FPS Counter", "0115", "When enabled, your current FPS will be showed while in the menus and playing levels");
 
         return ret;
     }
