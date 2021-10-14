@@ -98,7 +98,7 @@ namespace h_menuLayer {
     }
 }
 
-
+/*
 namespace h_LoadingLayer {
     
 const char* (*loading)(cocos2d::CCLayer*);
