@@ -209,27 +209,6 @@ namespace h_CreatorLayer
         creditosmen->setScale(1);
         self->addChild(creditosmen, 100);
 
-        auto children = self->getChildren();
-		CCMenu* menu = (CCMenu*)children->objectAtIndex(1);
-
-		auto menuObjs = menu->getChildren();
-
-		CCNode* mapPack = (CCNode*)menuObjs->objectAtIndex(8);
-
-		menu->removeChild(mapPack, true);
-
-		CCNode* Featured = (CCNode*)menuObjs->objectAtIndex(6);
-		CCNode* HOF = (CCNode*)menuObjs->objectAtIndex(7);
-		CCNode* Search = (CCNode*)menuObjs->objectAtIndex(8);
-
-		CCNode* Create = (CCNode*)menuObjs->objectAtIndex(0);
-		CCNode* Saved = (CCNode*)menuObjs->objectAtIndex(1);
-		CCNode* Scores = (CCNode*)menuObjs->objectAtIndex(2);
-
-		Featured->setPositionX(Create->getPositionX());
-		HOF->setPositionX(Saved->getPositionX());
-		Search->setPositionX(Scores->getPositionX());
-
 
         return ret;
     }
