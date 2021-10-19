@@ -10,6 +10,7 @@
 #include "FLAlertLayerProtocol.h"
 #include "ObjectToolbox.h"
 #include "GameObject.h"
+#include "EffectGameObject.h"
 
 // layers
 #include "LoadingLayer.h"
@@ -22,3 +23,5 @@
 #include "RewardsPage.h"
 #include "LevelFeatureLayer.h"
 #include "SetGroupIDLayer.h"
+#include "GJGarageLayer.h"
+#include "ShardsPage.h"

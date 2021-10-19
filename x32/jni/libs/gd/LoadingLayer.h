@@ -2,7 +2,7 @@
 
 #include <cocos2d.h>
 
-class LoadingLayer : public cocos2d::CCLayer, public cocos2d::CCTouchDelegate, public cocos2d::CCAccelerometerDelegate, public cocos2d::CCKeypadDelegate, public cocos2d::CCKeyboardDelegate, public cocos2d::CCMouseDelegate
+class LoadingLayer : public cocos2d::CCLayer
 {
 public:
 	bool finishedLoading_; // 0x129
@@ -28,4 +28,4 @@ public:
 	void loadingFinished( );
 
 	void updateProgress( int progress );
-}
+};

@@ -5,6 +5,7 @@
 class VideoOptionsLayer : public cocos2d::CCLayerColor {
 public:
 	static cocos2d::CCScene* scene();
+	
 	static cocos2d::CCLayer* create();
 	void onAdvanced(cocos2d::CCObject* pSender);
 	bool init();

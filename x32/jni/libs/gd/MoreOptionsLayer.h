@@ -1,7 +1,7 @@
 #pragma once
 
 #include "MenuLayer.h"
-#include "cocos2d.h"
+#include <cocos2d.h>
 
 class MoreOptionsLayer : public cocos2d::CCLayer 
 {
@@ -12,16 +12,17 @@ public:
     static MoreOptionsLayer* create();
 
     void onSongBrowser(CCObject* sender);
-    static MoreOptionsLayer* addToggle(bool* a1, const char* label, const char* gv, const char* description);
+    static MoreOptionsLayer* addToggle(cocos2d::CCLayer* self, const char* label, const char* gv, const char* description);
     void onToggle(CCObject* sender);
 
     virtual bool init();
 };
 
+
 class OptionsLayer : public cocos2d::CCLayer
 {
 public:
-    
+
 public:
     OptionsLayer();
     virtual ~OptionsLayer();
